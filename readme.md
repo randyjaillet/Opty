@@ -1,10 +1,10 @@
-# Opty
+# Opti
 
 A searchable, easily-styled replacement for select elements.
 
 ## Features
 
-As with standard select elements, Opty elements can...
+As with standard select elements, Opti elements can...
 
 * be disabled or have their options disabled with the `disabled` attribute
 * have pre-selected options with the `selected` attribute
@@ -13,13 +13,13 @@ As with standard select elements, Opty elements can...
 
 ## Usage
 
-Opty does not need to be initialized. Just include jQuery, the Opty script, and the required markup.
+Opti does not need to be initialized. Just include jQuery, the Opti script, and the required markup.
 
 ## Markup
 
-Opty does not automatically inject near or in place of existing select elements. Specific markup must be in place for the Opty to initialize on. The expected markup structure is as follows:
+Opti does not automatically inject near or in place of existing select elements. Specific markup must be in place for the Opti to initialize on. The expected markup structure is as follows:
 
-* `.opty`
+* `.opti`
 	* `a.surface`
 		* `.placeholder` (optional for zero-state placeholder value)
 	* `.dropdown`
@@ -33,7 +33,7 @@ Opty does not automatically inject near or in place of existing select elements.
 For example:
 
 ```
-<div class="opty" id="foods" multiple>
+<div class="opti" id="foods" multiple>
 	<a href="#" class="surface"><span class="placeholder">Choose foods</span></a>
 	<div class="dropdown">
 		<input type="text" class="search" tabindex="-1">
@@ -48,8 +48,8 @@ For example:
 
 ## Value Storage
 
-Opty elements store their current values using the jQuery `data()` method in the key "values". This is a string for single-select Opty elements and an array for multi-select ones. For example, to retrieve the current value on the above Opty element, one could use: `$("#foods").data("values")`. (This would retrieve the `data-value` of the currently chosen option, not the text.)
+Opti elements store their current values using the jQuery `data()` method in the key "values". This is a string for single-select Opti elements and an array for multi-select ones. For example, to retrieve the current value on the above Opti element, one could use: `$("#foods").data("values")`. (This would retrieve the `data-value` of the currently chosen option, not the text.)
 
 ## Short Mode
 
-If an Opty element has less than five items, it will enter "short mode" and nix its search feature.
+If an Opti element has less than five items, it will enter "short mode" and nix its search feature.

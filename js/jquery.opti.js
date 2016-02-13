@@ -1,24 +1,24 @@
 /*
 
-Opty is a searchable, easily-stylable replacement for select elements.
+Opti is a searchable, easily-stylable replacement for select elements.
 
 Specific custom markup is required. (It doesn't automatically inject in place of
 or transform existing select elements).
 
-As with real select elements, Optys can:
+As with real select elements, Optis can:
 - be disabled with the "disabled" attribute
 - have disabled options with the "disabled" attribute on options (which are spans)
 - have default values with the "selected" attribute on options
-- have multiple values with the "multiple" attribute. Opty handles this
+- have multiple values with the "multiple" attribute. Opti handles this
 more nicely though--users don't have to hold ctrl/cmd keys, and selections are
 attractively represented both on the surface and within the menu
 - have groups of options, the labels of which are not choosable
 
-Optys store their values in "values" keys using jQuery's "data" method on the
-.opty. Multiple-select Optys do so in an array of strings.
+Optis store their values in "values" keys using jQuery's "data" method on the
+.opti. Multiple-select Optis do so in an array of strings.
 
 Terminology used in comments in this file:
-- "surface" : The part of the Opty that is always visible. This is an A tag
+- "surface" : The part of the Opti that is always visible. This is an A tag
 so it is focusable and clickable/enter-able. It contains a copy of the text of the
 selected option(s).
 - "selected": An option has been chosen via click or enter and the value inserted
@@ -27,9 +27,9 @@ into the surface.
 arrow keys or home/end keys in the search field to navigate the menu sans mouse.
 We don't want to use default tab behavior for this because that would require
 the user's leaving the search field to navigate the list.
-- "menu" or "dropdown": The sometimes-invisible part of the Opty containing
+- "menu" or "dropdown": The sometimes-invisible part of the Opti containing
 the list of options.
-- "option": A choosable (unless it's not) list item in the Opty menu.
+- "option": A choosable (unless it's not) list item in the Opti menu.
 You know, like with real selects.
 
 */
@@ -46,7 +46,7 @@ $(
 	function(){
 
 
-		$(".opty").each(
+		$(".opti").each(
 			function(){
 
 				var $o = $(this);
@@ -91,8 +91,8 @@ $(
 					);
 				} else {
 
-					// Find a label for the Opty and make it so clicking
-					// the label puts focus on this Opty's surface.
+					// Find a label for the Opti and make it so clicking
+					// the label puts focus on this Opti's surface.
 					var $thislabel = $('[for="' + $o.attr("id") + '"]');
 					if ($thislabel.length) {
 						$thislabel.on(
@@ -240,9 +240,9 @@ $(
 										if ($(".fakefocus",$o).length) {
 
 											// If the fake focused option is currently selected, do nothing
-											// unless this is a multiple-select Opty, in which case we
+											// unless this is a multiple-select Opti, in which case we
 											// unselect it.
-											// (We're not allowing un-choosing in a single-select Opty.)
+											// (We're not allowing un-choosing in a single-select Opti.)
 											if ($(".fakefocus",$o).hasClass("selected")) {
 												if ($o.is("[multiple]")) {
 													unchooseOption($o, $(".fakefocus",$o).attr("data-value"));
@@ -281,8 +281,8 @@ $(
 						function(e) {
 							if (!$o.is("[disabled]")) {
 								// If the clicked option is selected and this is a
-								// multiple-select Opty, unselect the option.
-								// (We're not allowing un-choosing in a single-select Opty.)
+								// multiple-select Opti, unselect the option.
+								// (We're not allowing un-choosing in a single-select Opti.)
 								if ($(this).hasClass("selected")) {
 									if ($o.is("[multiple]")) {
 										unchooseOption($o, $(this).attr("data-value"));
@@ -290,7 +290,7 @@ $(
 								} 
 
 								// If the clicked option is not selected, select it
-								// no matter what kind of Opty this is, as long
+								// no matter what kind of Opti this is, as long
 								// as the option isn't disabled.
 								else {
 									if (!$(this).is("[disabled]")) {
@@ -306,13 +306,13 @@ $(
 			}
 		);
 
-		// Whenever anything is clicked, close all the Optys except the one
+		// Whenever anything is clicked, close all the Optis except the one
 		// that was clicked within if any were in fact clicked within.
 		$(document).click(
 			function(event){
-				var $parentSelect = $(event.target).closest(".opty");
+				var $parentSelect = $(event.target).closest(".opti");
 				var $parentLabelSelect = $("#" + $(event.target).closest("label").attr("for"));
-				hideMenu($(".opty").not($parentSelect).not($parentLabelSelect));
+				hideMenu($(".opti").not($parentSelect).not($parentLabelSelect));
 			}
 		);
 
@@ -322,7 +322,7 @@ $(
 
 
 function showMenu($o) {
-	hideMenu($(".opty").not($o)); // Close other menus.
+	hideMenu($(".opti").not($o)); // Close other menus.
 	if (!$o.hasClass("activated")) {
 		$o.addClass("activated");
 	}
@@ -336,7 +336,7 @@ function hideMenu($o, focusOnSurface) {
 		$o.removeClass("activated");
 		window.setTimeout(
 			function () {
-				$o.closest(".field-row").removeClass("opty-activated");
+				$o.closest(".field-row").removeClass("opti-activated");
 			},
 			300
 		)
@@ -383,12 +383,12 @@ function chooseOption($o, $options, focusOnSurface) {
 		}
 	).remove();
 
-	// Multiple-select Optys
+	// Multiple-select Optis
 	if ($o.is("[multiple]")) {
 
-		// If the Opty is multiple-select, we're storing the selected
-		// values in a "values" array in jQuery's "data" method on the .opty.
-		// If the values array doesn't exist yet for this Opty, create it.
+		// If the Opti is multiple-select, we're storing the selected
+		// values in a "values" array in jQuery's "data" method on the .opti.
+		// If the values array doesn't exist yet for this Opti, create it.
 		if (!$o.data("values"))
 		{
 			$o.data("values", []);
@@ -423,12 +423,12 @@ function chooseOption($o, $options, focusOnSurface) {
 		);
 	}
 
-	// Single-select Opty
+	// Single-select Opti
 	else {
 		// Just in case multiple options slipped in, just use the last.
 		var $option = $options.last();
 		
-		// For single-select Optys, the value is stored in a
+		// For single-select Optis, the value is stored in a
 		// string rather than an array. Stick the value in.
 		$o.data("values", $option.attr("data-value"));
 
@@ -449,7 +449,7 @@ function chooseOption($o, $options, focusOnSurface) {
 	$o.trigger("change");
 }
 
-// This function is currently only used on multiple-select Optys, as
+// This function is currently only used on multiple-select Optis, as
 // single-select ones can't have their chosen options un-chosen (just
 // like with real select elements.)
 function unchooseOption($o, dataValue) {
