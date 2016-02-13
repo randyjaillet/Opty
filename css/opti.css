@@ -60,7 +60,7 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
 
 
 
-.opty {
+.opti {
   display: inline-block;
   position: relative;
   text-align: left;
@@ -68,7 +68,7 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   width: 250px;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-.opty .surface {
+.opti .surface {
   width: 100%;
   display: block;
   position: relative;
@@ -97,16 +97,16 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   -ms-transition: border-color 0.15s linear, background 0.15s linear, box-shadow 0.15s linear, z-index 0s 0.15s linear;
   transition: border-color 0.15s linear, background 0.15s linear, box-shadow 0.15s linear, z-index 0s 0.15s linear;
 }
-.opty .surface:hover,
-.opty .surface:focus {
+.opti .surface:hover,
+.opti .surface:focus {
   border-color: #48d;
   outline: none;
 }
-.opty .surface:hover:after,
-.opty .surface:focus:after {
+.opti .surface:hover:after,
+.opti .surface:focus:after {
   border-top-color: #48d;
 }
-.opty .surface .tag {
+.opti .surface .tag {
   display: inline-block;
   font-size: 11px;
   margin: 3px;
@@ -117,7 +117,7 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   border-radius: 2px;
   text-decoration: none;
 }
-.opty .surface .tag:before {
+.opti .surface .tag:before {
   display: inline-block;
   content: '+';
   -webkit-transform: rotate(45deg) scale(1.8);
@@ -127,7 +127,7 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   transform: rotate(45deg) scale(1.8);
   margin: 0 2px;
 }
-.opty .dropdown {
+.opti .dropdown {
   position: absolute;
   top: 100%;
   left: -200vw;
@@ -154,7 +154,7 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   background: rgba(240,240,240,0.95);
 }
-.opty .dropdown .search {
+.opti .dropdown .search {
   width: calc(100% - 20px);
   -webkit-appearance: none;
   background: #ddd url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='97.879' height='97.853' viewBox='51.038 51.042 97.879 97.853'><path fill='#BBB' d='M148.342 136.48l-24.492-24.5a39.293 39.293 0 0 0 6.334-21.376c0-21.816-17.75-39.562-39.563-39.562-21.832 0-39.582 17.75-39.582 39.56 0 21.815 17.75 39.56 39.542 39.56a39.295 39.295 0 0 0 21.375-6.332l24.5 24.458c.82.81 2.14.81 2.958 0l8.893-8.875a2.092 2.092 0 0 0 0-2.957l.036.023zM63.625 90.603c.014-14.902 12.09-26.98 26.992-27 14.906.014 26.987 12.094 27 27-.017 14.904-12.097 26.98-27 26.992-14.906-.014-26.986-12.094-27-27l.008.008z'/></svg>") 10px 50% no-repeat;
@@ -170,11 +170,11 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
 }
-.opty .dropdown .search:focus {
+.opti .dropdown .search:focus {
   outline: none;
   border: 1px solid #48d;
 }
-.opty .dropdown .list {
+.opti .dropdown .list {
   margin: 0;
   padding: 5px 0;
   list-style: none;
@@ -182,20 +182,20 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   overflow: auto;
   position: relative;
 }
-.opty .dropdown .list section {
+.opti .dropdown .list section {
   margin-left: 10px;
 }
-.opty .dropdown .list h5 {
+.opti .dropdown .list h5 {
   margin: 10px 0;
   padding: 0;
   font-size: inherit;
   font-weight: 600;
   color: #888;
 }
-.opty .dropdown .list h5:only-chid {
+.opti .dropdown .list h5:only-chid {
   display: none;
 }
-.opty .dropdown .list span {
+.opti .dropdown .list span {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -204,31 +204,31 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   color: #444;
   cursor: pointer;
 }
-.opty .dropdown .list span:hover,
-.opty .dropdown .list span.fakefocus {
+.opti .dropdown .list span:hover,
+.opti .dropdown .list span.fakefocus {
   color: #48b;
   background-color: rgba(68,136,187,0.1);
   outline: none;
 }
-.opty .dropdown .list span[disabled] {
+.opti .dropdown .list span[disabled] {
   opacity: 0.4;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
   filter: alpha(opacity=40);
   cursor: not-allowed;
 }
-.opty .dropdown .list span[disabled]:hover,
-.opty .dropdown .list span[disabled].fakefocus {
+.opti .dropdown .list span[disabled]:hover,
+.opti .dropdown .list span[disabled].fakefocus {
   color: inherit;
   background-color: inherit;
 }
-.opty .dropdown .list span.selected {
+.opti .dropdown .list span.selected {
   color: #48b;
   font-weight: 600;
 }
-.opty .dropdown .list span.selected:after {
+.opti .dropdown .list span.selected:after {
   content: ' \2714';
 }
-.opty.activated .surface {
+.opti.activated .surface {
   z-index: 100;
   background: #d4d4d4 url("data:image/svg+xml;utf8,<svg width='8' height='14' viewBox='0 0 8 14' xmlns='http://www.w3.org/2000/svg'><title>Triangle 1</title><path d='M4 0l4 5H0l4-5zm0 14l4-5H0l4 5z' fill='#AAA' fill-rule='evenodd'/></svg>") calc(100% - 8px) 50% no-repeat;
   -webkit-box-shadow: none;
@@ -241,7 +241,7 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   -ms-transition: background 0.15s linear, box-shadow 0.15s linear;
   transition: background 0.15s linear, box-shadow 0.15s linear;
 }
-.opty.activated .dropdown {
+.opti.activated .dropdown {
   left: 0;
   opacity: 1;
   -ms-filter: none;
@@ -257,7 +257,7 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   -ms-transition: opacity 0.15s linear, -ms-transform 0.15s linear;
   transition: opacity 0.15s linear, transform 0.15s linear;
 }
-.opty[disabled] {
+.opti[disabled] {
   opacity: 0.4;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
   filter: alpha(opacity=40);
@@ -268,24 +268,24 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   -ms-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-.opty[disabled] .surface {
+.opti[disabled] .surface {
   cursor: not-allowed;
   background: transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.opty[disabled] .surface:hover,
-.opty[disabled] .surface:focus {
+.opti[disabled] .surface:hover,
+.opti[disabled] .surface:focus {
   border-color: #c0c0c0;
 }
-.opty[disabled] .surface:hover:after,
-.opty[disabled] .surface:focus:after {
+.opti[disabled] .surface:hover:after,
+.opti[disabled] .surface:focus:after {
   border-top-color: #aaa;
 }
-.opty.zerostate .surface {
+.opti.zerostate .surface {
   color: rgba(0,0,0,0.3);
   font-style: italic;
 }
-.opty .hidden {
+.opti .hidden {
   display: none !important;
 }
