@@ -14,7 +14,7 @@
 		min-width 120px
 		margin 0
 		padding 8px 24px 8px 8px
-		background #E6E6E6 linear-gradient(top, #F2F2F2, #D4D4D4)
+		background url("data:image/svg+xml;utf8,<svg width='8' height='14' viewBox='0 0 8 14' xmlns='http://www.w3.org/2000/svg'><path d='M4 0l4 5H0l4-5zm0 14l4-5H0l4 5z' fill='#AAA' fill-rule='evenodd'/></svg>") calc(100% - 8px) 50% no-repeat, #E6E6E6 linear-gradient(top, #F2F2F2, #D4D4D4) 0 0 no-repeat
 		border 1px solid #B3B3B3
 		border-radius 3px
 		box-shadow 0 1px 2px rgba(0,0,0,.2), inset 0 1px 0 white
@@ -23,21 +23,7 @@
 		z-index 1
 		color inherit
 		cursor pointer
-		transition border-color .15s linear, z-index 0s .15s linear
-
-		&:after
-			content ' '
-			display block
-			position absolute
-			right 8px
-			height 0
-			width 0
-			border-width 4px
-			border-style solid
-			border-color transparent
-			border-top-color #AAA
-			top 50%
-			transform translateY(- @border-width / 2)
+		transition border-color .15s linear, background .15s linear, box-shadow .15s linear, z-index 0s .15s linear
 	
 		&:hover,
 		&:focus
@@ -46,10 +32,6 @@
 			
 			&:after
 				border-top-color #48D
-
-		.placeholder
-			opacity .5
-			font-style italic
 
 		.tag
 			display inline-block
@@ -155,7 +137,7 @@
 
 		.surface
 			z-index 100
-			background #D4D4D4
+			background #D4D4D4 url("data:image/svg+xml;utf8,<svg width='8' height='14' viewBox='0 0 8 14' xmlns='http://www.w3.org/2000/svg'><title>Triangle 1</title><path d='M4 0l4 5H0l4-5zm0 14l4-5H0l4 5z' fill='#AAA' fill-rule='evenodd'/></svg>") calc(100% - 8px) 50% no-repeat
 			box-shadow none
 			border-radius 3px 3px 0 0
 			transition background .15s linear, box-shadow .15s linear
@@ -183,6 +165,12 @@
 
 				&:after
 					border-top-color #AAA
+	
+	&.zerostate
+	
+		.surface
+			color rgba(0,0,0,.3)
+			font-style italic
 
 	.hidden
 		display none !important

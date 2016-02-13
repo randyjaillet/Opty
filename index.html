@@ -15,8 +15,8 @@
 	<ul>
 		<li>
 			<p>Opty replaces standard <code>select</code> elements with searchable, easily styleable, custom ones.</p>
-			<div class="opty">
-				<a href="#" class="surface"><span class="placeholder">State</span></a>
+			<div class="opty" data-placeholder="State">
+				<a href="#" class="surface"></a>
 				<div class="dropdown">
 					<input type="text" class="search" tabindex="-1">
 					<section class="list">
@@ -77,8 +77,8 @@
 		</li>
 		<li>
 			<p>It automatically ditches the search if there aren't many options. (If you want.)</p>
-			<div class="opty" data-field-id="shipping">
-				<a href="#" class="surface"><span class="placeholder">Shipping method</span></a>
+			<div class="opty" data-placeholder="Shipping method">
+				<a href="#" class="surface"></a>
 				<div class="dropdown">
 					<input type="text" class="search" tabindex="-1">
 					<section class="list">
@@ -90,8 +90,42 @@
 		</li>
 		<li>
 			<p>It supports disabled options.</p>
-			<div class="opty">
-				<a href="#" class="surface"><span class="placeholder">State</span></a>
+			<div class="opty" data-placeholder="Meal">
+				<a href="#" class="surface"></a>
+				<div class="dropdown">
+					<input type="text" class="search" tabindex="-1">
+					<section class="list">
+						<span data-value="4">Salad</span>
+						<span data-value="0" disabled>Steak</span>
+						<span data-value="5">Pasta</span>
+					</section>
+				</div>
+			</div>
+		</li>
+		<li>
+			<p>Labels work.</p>
+			<div>
+				<div><label for="foo">Pet</label></div>
+				<div class="opty" id="foo">
+					<a href="#" class="surface"></a>
+					<div class="dropdown">
+						<input type="text" class="search" tabindex="-1">
+						<section class="list">
+							<span data-value="1">Puppy</span>
+							<span data-value="2">Kitten</span>
+							<span data-value="3">Frog</span>
+							<span data-value="4">Wyvern</span>
+							<span data-value="5">Goat</span>
+							<span data-value="6">Fish</span>
+						</section>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li>
+			<p>You can have choices start off <code>selected</code>.</p>
+			<div class="opty" data-placeholder="Choose country">
+				<a href="#" class="surface"></a>
 				<div class="dropdown">
 					<input type="text" class="search" tabindex="-1">
 					<section class="list">
@@ -99,8 +133,7 @@
 						<span data-value="2">Alaska</span>
 						<span data-value="3">Arizona</span>
 						<span data-value="4">Arkansas</span>
-						<span data-value="0" disabled>Unchooseable state</span>
-						<span data-value="5">California</span>
+						<span data-value="5" selected>California</span>
 						<span data-value="6">Colorado</span>
 						<span data-value="7">Connecticut</span>
 						<span data-value="8">Delaware</span>
@@ -151,597 +184,70 @@
 			</div>
 		</li>
 		<li>
-			<p>Labels work.</p>
-			<div>
-				<div><label for="foo">State</label></div>
-				<div class="opty" id="foo">
-					<a href="#" class="surface"></a>
-					<div class="dropdown">
-						<input type="text" class="search" tabindex="-1">
-						<section class="list">
-							<span data-value="1">Alabama</span>
-							<span data-value="2">Alaska</span>
-							<span data-value="3">Arizona</span>
-							<span data-value="4">Arkansas</span>
-							<span data-value="5">California</span>
-							<span data-value="6">Colorado</span>
-							<span data-value="7">Connecticut</span>
-							<span data-value="8">Delaware</span>
-							<span data-value="9">Florida</span>
-							<span data-value="10">Georgia</span>
-							<span data-value="11">Hawaii</span>
-							<span data-value="12">Idaho</span>
-							<span data-value="13">Illinois</span>
-							<span data-value="14">Indiana</span>
-							<span data-value="15">Iowa</span>
-							<span data-value="16">Kansas</span>
-							<span data-value="17">Kentucky</span>
-							<span data-value="18">Louisiana</span>
-							<span data-value="19">Maine</span>
-							<span data-value="20">Maryland</span>
-							<span data-value="21">Massachusetts</span>
-							<span data-value="22">Michigan</span>
-							<span data-value="23">Minnesota</span>
-							<span data-value="24">Mississippi</span>
-							<span data-value="25">Missouri</span>
-							<span data-value="26">Montana</span>
-							<span data-value="27">Nebraska</span>
-							<span data-value="28">Nevada</span>
-							<span data-value="29">New Hampshire</span>
-							<span data-value="30">New Jersey</span>
-							<span data-value="31">New Mexico</span>
-							<span data-value="32">New York</span>
-							<span data-value="33">North Carolina</span>
-							<span data-value="34">North Dakota</span>
-							<span data-value="35">Ohio</span>
-							<span data-value="36">Oklahoma</span>
-							<span data-value="37">Oregon</span>
-							<span data-value="38">Pennsylvania</span>
-							<span data-value="39">Rhode Island</span>
-							<span data-value="40">South Carolina</span>
-							<span data-value="41">South Dakota</span>
-							<span data-value="42">Tennessee</span>
-							<span data-value="43">Texas</span>
-							<span data-value="44">Utah</span>
-							<span data-value="45">Vermont</span>
-							<span data-value="46">Virginia</span>
-							<span data-value="47">Washington</span>
-							<span data-value="48">West Virginia</span>
-							<span data-value="49">Wisconsin</span>
-							<span data-value="50">Wyoming</span>
-						</section>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li>
 			<p>You can disable the whole thing.</p>
-			<div class="opty" disabled>
-				<a href="#" class="surface"><span class="placeholder">Choose country</span></a>
+			<div class="opty" data-placeholder="State" disabled>
+				<a href="#" class="surface"></a>
 				<div class="dropdown">
 					<input type="text" class="search" tabindex="-1">
 					<section class="list">
-						<span data-value="1">United States</span>
-						<span data-value="2">United Kingdom</span>
-						<span data-value="3">Afghanistan</span>
-						<span data-value="4">Aland Islands</span>
-						<span data-value="5">Albania</span>
-						<span data-value="6">Algeria</span>
-						<span data-value="7">American Samoa</span>
-						<span data-value="8">Andorra</span>
-						<span data-value="9">Angola</span>
-						<span data-value="10">Anguilla</span>
-						<span data-value="11">Antarctica</span>
-						<span data-value="12">Antigua and Barbuda</span>
-						<span data-value="13">Argentina</span>
-						<span data-value="14">Armenia</span>
-						<span data-value="15">Aruba</span>
-						<span data-value="16">Australia</span>
-						<span data-value="17">Austria</span>
-						<span data-value="18">Azerbaijan</span>
-						<span data-value="19">Bahamas</span>
-						<span data-value="20">Bahrain</span>
-						<span data-value="21">Bangladesh</span>
-						<span data-value="22">Barbados</span>
-						<span data-value="23">Belarus</span>
-						<span data-value="24">Belgium</span>
-						<span data-value="25">Belize</span>
-						<span data-value="26">Benin</span>
-						<span data-value="27">Bermuda</span>
-						<span data-value="28">Bhutan</span>
-						<span data-value="29">Bolivia, Plurinational State of</span>
-						<span data-value="30">Bonaire, Sint Eustatius and Saba</span>
-						<span data-value="31">Bosnia and Herzegovina</span>
-						<span data-value="32">Botswana</span>
-						<span data-value="33">Bouvet Island</span>
-						<span data-value="34">Brazil</span>
-						<span data-value="35">British Indian Ocean Territory</span>
-						<span data-value="36">Brunei Darussalam</span>
-						<span data-value="37">Bulgaria</span>
-						<span data-value="38">Burkina Faso</span>
-						<span data-value="39">Burundi</span>
-						<span data-value="40">Cambodia</span>
-						<span data-value="41">Cameroon</span>
-						<span data-value="42">Canada</span>
-						<span data-value="43">Cape Verde</span>
-						<span data-value="44">Cayman Islands</span>
-						<span data-value="45">Central African Republic</span>
-						<span data-value="46">Chad</span>
-						<span data-value="47">Chile</span>
-						<span data-value="48">China</span>
-						<span data-value="49">Christmas Island</span>
-						<span data-value="50">Cocos (Keeling) Islands</span>
-						<span data-value="51">Colombia</span>
-						<span data-value="52">Comoros</span>
-						<span data-value="53">Congo</span>
-						<span data-value="54">Congo, The Democratic Republic of The</span>
-						<span data-value="55">Cook Islands</span>
-						<span data-value="56">Costa Rica</span>
-						<span data-value="57">Cote D'ivoire</span>
-						<span data-value="58">Croatia</span>
-						<span data-value="59">Cuba</span>
-						<span data-value="60">Curacao</span>
-						<span data-value="61">Cyprus</span>
-						<span data-value="62">Czech Republic</span>
-						<span data-value="63">Denmark</span>
-						<span data-value="64">Djibouti</span>
-						<span data-value="65">Dominica</span>
-						<span data-value="66">Dominican Republic</span>
-						<span data-value="67">Ecuador</span>
-						<span data-value="68">Egypt</span>
-						<span data-value="69">El Salvador</span>
-						<span data-value="70">Equatorial Guinea</span>
-						<span data-value="71">Eritrea</span>
-						<span data-value="72">Estonia</span>
-						<span data-value="73">Ethiopia</span>
-						<span data-value="74">Falkland Islands (Malvinas)</span>
-						<span data-value="75">Faroe Islands</span>
-						<span data-value="76">Fiji</span>
-						<span data-value="77">Finland</span>
-						<span data-value="78">France</span>
-						<span data-value="79">French Guiana</span>
-						<span data-value="80">French Polynesia</span>
-						<span data-value="81">French Southern Territories</span>
-						<span data-value="82">Gabon</span>
-						<span data-value="83">Gambia</span>
-						<span data-value="84">Georgia</span>
-						<span data-value="85">Germany</span>
-						<span data-value="86">Ghana</span>
-						<span data-value="87">Gibraltar</span>
-						<span data-value="88">Greece</span>
-						<span data-value="89">Greenland</span>
-						<span data-value="90">Grenada</span>
-						<span data-value="91">Guadeloupe</span>
-						<span data-value="92">Guam</span>
-						<span data-value="93">Guatemala</span>
-						<span data-value="94">Guernsey</span>
-						<span data-value="95">Guinea</span>
-						<span data-value="96">Guinea-bissau</span>
-						<span data-value="97">Guyana</span>
-						<span data-value="98">Haiti</span>
-						<span data-value="99">Heard Island and Mcdonald Islands</span>
-						<span data-value="100">Holy See (Vatican City State)</span>
-						<span data-value="101">Honduras</span>
-						<span data-value="102">Hong Kong</span>
-						<span data-value="103">Hungary</span>
-						<span data-value="104">Iceland</span>
-						<span data-value="105">India</span>
-						<span data-value="106">Indonesia</span>
-						<span data-value="107">Iran, Islamic Republic of</span>
-						<span data-value="108">Iraq</span>
-						<span data-value="109">Ireland</span>
-						<span data-value="110">Isle of Man</span>
-						<span data-value="111">Israel</span>
-						<span data-value="112">Italy</span>
-						<span data-value="113">Jamaica</span>
-						<span data-value="114">Japan</span>
-						<span data-value="115">Jersey</span>
-						<span data-value="116">Jordan</span>
-						<span data-value="117">Kazakhstan</span>
-						<span data-value="118">Kenya</span>
-						<span data-value="119">Kiribati</span>
-						<span data-value="120">Korea, Democratic People's Republic of</span>
-						<span data-value="121">Korea, Republic of</span>
-						<span data-value="122">Kuwait</span>
-						<span data-value="123">Kyrgyzstan</span>
-						<span data-value="124">Lao People's Democratic Republic</span>
-						<span data-value="125">Latvia</span>
-						<span data-value="126">Lebanon</span>
-						<span data-value="127">Lesotho</span>
-						<span data-value="128">Liberia</span>
-						<span data-value="129">Libya</span>
-						<span data-value="130">Liechtenstein</span>
-						<span data-value="131">Lithuania</span>
-						<span data-value="132">Luxembourg</span>
-						<span data-value="133">Macao</span>
-						<span data-value="134">Macedonia, The Former Yugoslav Republic of</span>
-						<span data-value="135">Madagascar</span>
-						<span data-value="136">Malawi</span>
-						<span data-value="137">Malaysia</span>
-						<span data-value="138">Maldives</span>
-						<span data-value="139">Mali</span>
-						<span data-value="140">Malta</span>
-						<span data-value="141">Marshall Islands</span>
-						<span data-value="142">Martinique</span>
-						<span data-value="143">Mauritania</span>
-						<span data-value="144">Mauritius</span>
-						<span data-value="145">Mayotte</span>
-						<span data-value="146">Mexico</span>
-						<span data-value="147">Micronesia, Federated States of</span>
-						<span data-value="148">Moldova, Republic of</span>
-						<span data-value="149">Monaco</span>
-						<span data-value="150">Mongolia</span>
-						<span data-value="151">Montenegro</span>
-						<span data-value="152">Montserrat</span>
-						<span data-value="153">Morocco</span>
-						<span data-value="154">Mozambique</span>
-						<span data-value="155">Myanmar</span>
-						<span data-value="156">Namibia</span>
-						<span data-value="157">Nauru</span>
-						<span data-value="158">Nepal</span>
-						<span data-value="159">Netherlands</span>
-						<span data-value="160">New Caledonia</span>
-						<span data-value="161">New Zealand</span>
-						<span data-value="162">Nicaragua</span>
-						<span data-value="163">Niger</span>
-						<span data-value="164">Nigeria</span>
-						<span data-value="165">Niue</span>
-						<span data-value="166">Norfolk Island</span>
-						<span data-value="167">Northern Mariana Islands</span>
-						<span data-value="168">Norway</span>
-						<span data-value="169">Oman</span>
-						<span data-value="170">Pakistan</span>
-						<span data-value="171">Palau</span>
-						<span data-value="172">Palestinian Territory, Occupied</span>
-						<span data-value="173">Panama</span>
-						<span data-value="174">Papua New Guinea</span>
-						<span data-value="175">Paraguay</span>
-						<span data-value="176">Peru</span>
-						<span data-value="177">Philippines</span>
-						<span data-value="178">Pitcairn</span>
-						<span data-value="179">Poland</span>
-						<span data-value="180">Portugal</span>
-						<span data-value="181">Puerto Rico</span>
-						<span data-value="182">Qatar</span>
-						<span data-value="183">Reunion</span>
-						<span data-value="184">Romania</span>
-						<span data-value="185">Russian Federation</span>
-						<span data-value="186">Rwanda</span>
-						<span data-value="187">Saint Barthelemy</span>
-						<span data-value="188">Saint Helena, Ascension and Tristan da Cunha</span>
-						<span data-value="189">Saint Kitts and Nevis</span>
-						<span data-value="190">Saint Lucia</span>
-						<span data-value="191">Saint Martin (French part)</span>
-						<span data-value="192">Saint Pierre and Miquelon</span>
-						<span data-value="193">Saint Vincent and The Grenadines</span>
-						<span data-value="194">Samoa</span>
-						<span data-value="195">San Marino</span>
-						<span data-value="196">Sao Tome and Principe</span>
-						<span data-value="197">Saudi Arabia</span>
-						<span data-value="198">Senegal</span>
-						<span data-value="199">Serbia</span>
-						<span data-value="200">Seychelles</span>
-						<span data-value="201">Sierra Leone</span>
-						<span data-value="202">Singapore</span>
-						<span data-value="203">Sint Maarten (Dutch part)</span>
-						<span data-value="204">Slovakia</span>
-						<span data-value="205">Slovenia</span>
-						<span data-value="206">Solomon Islands</span>
-						<span data-value="207">Somalia</span>
-						<span data-value="208">South Africa</span>
-						<span data-value="209">South Georgia and The South Sandwich Islands</span>
-						<span data-value="210">South Sudan</span>
-						<span data-value="211">Spain</span>
-						<span data-value="212">Sri Lanka</span>
-						<span data-value="213">Sudan</span>
-						<span data-value="214">Suriname</span>
-						<span data-value="215">Svalbard and Jan Mayen</span>
-						<span data-value="216">Swaziland</span>
-						<span data-value="217">Sweden</span>
-						<span data-value="218">Switzerland</span>
-						<span data-value="219">Syrian Arab Republic</span>
-						<span data-value="220">Taiwan, Province of China</span>
-						<span data-value="221">Tajikistan</span>
-						<span data-value="222">Tanzania, United Republic of</span>
-						<span data-value="223">Thailand</span>
-						<span data-value="224">Timor-leste</span>
-						<span data-value="225">Togo</span>
-						<span data-value="226">Tokelau</span>
-						<span data-value="227">Tonga</span>
-						<span data-value="228">Trinidad and Tobago</span>
-						<span data-value="229">Tunisia</span>
-						<span data-value="230">Turkey</span>
-						<span data-value="231">Turkmenistan</span>
-						<span data-value="232">Turks and Caicos Islands</span>
-						<span data-value="233">Tuvalu</span>
-						<span data-value="234">Uganda</span>
-						<span data-value="235">Ukraine</span>
-						<span data-value="236">United Arab Emirates</span>
-						<span data-value="237">United Kingdom</span>
-						<span data-value="238">United States</span>
-						<span data-value="239">United States Minor Outlying Islands</span>
-						<span data-value="240">Uruguay</span>
-						<span data-value="241">Uzbekistan</span>
-						<span data-value="242">Vanuatu</span>
-						<span data-value="243">Venezuela, Bolivarian Republic of</span>
-						<span data-value="244">Viet Nam</span>
-						<span data-value="245">Virgin Islands, British</span>
-						<span data-value="246">Virgin Islands, U.S.</span>
-						<span data-value="247">Wallis and Futuna</span>
-						<span data-value="248">Western Sahara</span>
-						<span data-value="249">Yemen</span>
-						<span data-value="250">Zambia</span>
-						<span data-value="251">Zimbabwe</span>
-					</section>
-				</div>
-			</div>
-		</li>
-		<li>
-			<p>You can have choices start off <code>selected</code>.</p>
-			<div class="opty">
-				<a href="#" class="surface"><span class="placeholder">Choose country</span></a>
-				<div class="dropdown">
-					<input type="text" class="search" tabindex="-1">
-					<section class="list">
-						<span data-value="1" selected>United States</span>
-						<span data-value="2">United Kingdom</span>
-						<span data-value="3">Afghanistan</span>
-						<span data-value="4">Aland Islands</span>
-						<span data-value="5">Albania</span>
-						<span data-value="6">Algeria</span>
-						<span data-value="7">American Samoa</span>
-						<span data-value="8">Andorra</span>
-						<span data-value="9">Angola</span>
-						<span data-value="10">Anguilla</span>
-						<span data-value="11">Antarctica</span>
-						<span data-value="12">Antigua and Barbuda</span>
-						<span data-value="13">Argentina</span>
-						<span data-value="14">Armenia</span>
-						<span data-value="15">Aruba</span>
-						<span data-value="16">Australia</span>
-						<span data-value="17">Austria</span>
-						<span data-value="18">Azerbaijan</span>
-						<span data-value="19">Bahamas</span>
-						<span data-value="20">Bahrain</span>
-						<span data-value="21">Bangladesh</span>
-						<span data-value="22">Barbados</span>
-						<span data-value="23">Belarus</span>
-						<span data-value="24">Belgium</span>
-						<span data-value="25">Belize</span>
-						<span data-value="26">Benin</span>
-						<span data-value="27">Bermuda</span>
-						<span data-value="28">Bhutan</span>
-						<span data-value="29">Bolivia, Plurinational State of</span>
-						<span data-value="30">Bonaire, Sint Eustatius and Saba</span>
-						<span data-value="31">Bosnia and Herzegovina</span>
-						<span data-value="32">Botswana</span>
-						<span data-value="33">Bouvet Island</span>
-						<span data-value="34">Brazil</span>
-						<span data-value="35">British Indian Ocean Territory</span>
-						<span data-value="36">Brunei Darussalam</span>
-						<span data-value="37">Bulgaria</span>
-						<span data-value="38">Burkina Faso</span>
-						<span data-value="39">Burundi</span>
-						<span data-value="40">Cambodia</span>
-						<span data-value="41">Cameroon</span>
-						<span data-value="42">Canada</span>
-						<span data-value="43">Cape Verde</span>
-						<span data-value="44">Cayman Islands</span>
-						<span data-value="45">Central African Republic</span>
-						<span data-value="46">Chad</span>
-						<span data-value="47">Chile</span>
-						<span data-value="48">China</span>
-						<span data-value="49">Christmas Island</span>
-						<span data-value="50">Cocos (Keeling) Islands</span>
-						<span data-value="51">Colombia</span>
-						<span data-value="52">Comoros</span>
-						<span data-value="53">Congo</span>
-						<span data-value="54">Congo, The Democratic Republic of The</span>
-						<span data-value="55">Cook Islands</span>
-						<span data-value="56">Costa Rica</span>
-						<span data-value="57">Cote D'ivoire</span>
-						<span data-value="58">Croatia</span>
-						<span data-value="59">Cuba</span>
-						<span data-value="60">Curacao</span>
-						<span data-value="61">Cyprus</span>
-						<span data-value="62">Czech Republic</span>
-						<span data-value="63">Denmark</span>
-						<span data-value="64">Djibouti</span>
-						<span data-value="65">Dominica</span>
-						<span data-value="66">Dominican Republic</span>
-						<span data-value="67">Ecuador</span>
-						<span data-value="68">Egypt</span>
-						<span data-value="69">El Salvador</span>
-						<span data-value="70">Equatorial Guinea</span>
-						<span data-value="71">Eritrea</span>
-						<span data-value="72">Estonia</span>
-						<span data-value="73">Ethiopia</span>
-						<span data-value="74">Falkland Islands (Malvinas)</span>
-						<span data-value="75">Faroe Islands</span>
-						<span data-value="76">Fiji</span>
-						<span data-value="77">Finland</span>
-						<span data-value="78">France</span>
-						<span data-value="79">French Guiana</span>
-						<span data-value="80">French Polynesia</span>
-						<span data-value="81">French Southern Territories</span>
-						<span data-value="82">Gabon</span>
-						<span data-value="83">Gambia</span>
-						<span data-value="84">Georgia</span>
-						<span data-value="85">Germany</span>
-						<span data-value="86">Ghana</span>
-						<span data-value="87">Gibraltar</span>
-						<span data-value="88">Greece</span>
-						<span data-value="89">Greenland</span>
-						<span data-value="90">Grenada</span>
-						<span data-value="91">Guadeloupe</span>
-						<span data-value="92">Guam</span>
-						<span data-value="93">Guatemala</span>
-						<span data-value="94">Guernsey</span>
-						<span data-value="95">Guinea</span>
-						<span data-value="96">Guinea-bissau</span>
-						<span data-value="97">Guyana</span>
-						<span data-value="98">Haiti</span>
-						<span data-value="99">Heard Island and Mcdonald Islands</span>
-						<span data-value="100">Holy See (Vatican City State)</span>
-						<span data-value="101">Honduras</span>
-						<span data-value="102">Hong Kong</span>
-						<span data-value="103">Hungary</span>
-						<span data-value="104">Iceland</span>
-						<span data-value="105">India</span>
-						<span data-value="106">Indonesia</span>
-						<span data-value="107">Iran, Islamic Republic of</span>
-						<span data-value="108">Iraq</span>
-						<span data-value="109">Ireland</span>
-						<span data-value="110">Isle of Man</span>
-						<span data-value="111">Israel</span>
-						<span data-value="112">Italy</span>
-						<span data-value="113">Jamaica</span>
-						<span data-value="114">Japan</span>
-						<span data-value="115">Jersey</span>
-						<span data-value="116">Jordan</span>
-						<span data-value="117">Kazakhstan</span>
-						<span data-value="118">Kenya</span>
-						<span data-value="119">Kiribati</span>
-						<span data-value="120">Korea, Democratic People's Republic of</span>
-						<span data-value="121">Korea, Republic of</span>
-						<span data-value="122">Kuwait</span>
-						<span data-value="123">Kyrgyzstan</span>
-						<span data-value="124">Lao People's Democratic Republic</span>
-						<span data-value="125">Latvia</span>
-						<span data-value="126">Lebanon</span>
-						<span data-value="127">Lesotho</span>
-						<span data-value="128">Liberia</span>
-						<span data-value="129">Libya</span>
-						<span data-value="130">Liechtenstein</span>
-						<span data-value="131">Lithuania</span>
-						<span data-value="132">Luxembourg</span>
-						<span data-value="133">Macao</span>
-						<span data-value="134">Macedonia, The Former Yugoslav Republic of</span>
-						<span data-value="135">Madagascar</span>
-						<span data-value="136">Malawi</span>
-						<span data-value="137">Malaysia</span>
-						<span data-value="138">Maldives</span>
-						<span data-value="139">Mali</span>
-						<span data-value="140">Malta</span>
-						<span data-value="141">Marshall Islands</span>
-						<span data-value="142">Martinique</span>
-						<span data-value="143">Mauritania</span>
-						<span data-value="144">Mauritius</span>
-						<span data-value="145">Mayotte</span>
-						<span data-value="146">Mexico</span>
-						<span data-value="147">Micronesia, Federated States of</span>
-						<span data-value="148">Moldova, Republic of</span>
-						<span data-value="149">Monaco</span>
-						<span data-value="150">Mongolia</span>
-						<span data-value="151">Montenegro</span>
-						<span data-value="152">Montserrat</span>
-						<span data-value="153">Morocco</span>
-						<span data-value="154">Mozambique</span>
-						<span data-value="155">Myanmar</span>
-						<span data-value="156">Namibia</span>
-						<span data-value="157">Nauru</span>
-						<span data-value="158">Nepal</span>
-						<span data-value="159">Netherlands</span>
-						<span data-value="160">New Caledonia</span>
-						<span data-value="161">New Zealand</span>
-						<span data-value="162">Nicaragua</span>
-						<span data-value="163">Niger</span>
-						<span data-value="164">Nigeria</span>
-						<span data-value="165">Niue</span>
-						<span data-value="166">Norfolk Island</span>
-						<span data-value="167">Northern Mariana Islands</span>
-						<span data-value="168">Norway</span>
-						<span data-value="169">Oman</span>
-						<span data-value="170">Pakistan</span>
-						<span data-value="171">Palau</span>
-						<span data-value="172">Palestinian Territory, Occupied</span>
-						<span data-value="173">Panama</span>
-						<span data-value="174">Papua New Guinea</span>
-						<span data-value="175">Paraguay</span>
-						<span data-value="176">Peru</span>
-						<span data-value="177">Philippines</span>
-						<span data-value="178">Pitcairn</span>
-						<span data-value="179">Poland</span>
-						<span data-value="180">Portugal</span>
-						<span data-value="181">Puerto Rico</span>
-						<span data-value="182">Qatar</span>
-						<span data-value="183">Reunion</span>
-						<span data-value="184">Romania</span>
-						<span data-value="185">Russian Federation</span>
-						<span data-value="186">Rwanda</span>
-						<span data-value="187">Saint Barthelemy</span>
-						<span data-value="188">Saint Helena, Ascension and Tristan da Cunha</span>
-						<span data-value="189">Saint Kitts and Nevis</span>
-						<span data-value="190">Saint Lucia</span>
-						<span data-value="191">Saint Martin (French part)</span>
-						<span data-value="192">Saint Pierre and Miquelon</span>
-						<span data-value="193">Saint Vincent and The Grenadines</span>
-						<span data-value="194">Samoa</span>
-						<span data-value="195">San Marino</span>
-						<span data-value="196">Sao Tome and Principe</span>
-						<span data-value="197">Saudi Arabia</span>
-						<span data-value="198">Senegal</span>
-						<span data-value="199">Serbia</span>
-						<span data-value="200">Seychelles</span>
-						<span data-value="201">Sierra Leone</span>
-						<span data-value="202">Singapore</span>
-						<span data-value="203">Sint Maarten (Dutch part)</span>
-						<span data-value="204">Slovakia</span>
-						<span data-value="205">Slovenia</span>
-						<span data-value="206">Solomon Islands</span>
-						<span data-value="207">Somalia</span>
-						<span data-value="208">South Africa</span>
-						<span data-value="209">South Georgia and The South Sandwich Islands</span>
-						<span data-value="210">South Sudan</span>
-						<span data-value="211">Spain</span>
-						<span data-value="212">Sri Lanka</span>
-						<span data-value="213">Sudan</span>
-						<span data-value="214">Suriname</span>
-						<span data-value="215">Svalbard and Jan Mayen</span>
-						<span data-value="216">Swaziland</span>
-						<span data-value="217">Sweden</span>
-						<span data-value="218">Switzerland</span>
-						<span data-value="219">Syrian Arab Republic</span>
-						<span data-value="220">Taiwan, Province of China</span>
-						<span data-value="221">Tajikistan</span>
-						<span data-value="222">Tanzania, United Republic of</span>
-						<span data-value="223">Thailand</span>
-						<span data-value="224">Timor-leste</span>
-						<span data-value="225">Togo</span>
-						<span data-value="226">Tokelau</span>
-						<span data-value="227">Tonga</span>
-						<span data-value="228">Trinidad and Tobago</span>
-						<span data-value="229">Tunisia</span>
-						<span data-value="230">Turkey</span>
-						<span data-value="231">Turkmenistan</span>
-						<span data-value="232">Turks and Caicos Islands</span>
-						<span data-value="233">Tuvalu</span>
-						<span data-value="234">Uganda</span>
-						<span data-value="235">Ukraine</span>
-						<span data-value="236">United Arab Emirates</span>
-						<span data-value="237">United Kingdom</span>
-						<span data-value="238">United States</span>
-						<span data-value="239">United States Minor Outlying Islands</span>
-						<span data-value="240">Uruguay</span>
-						<span data-value="241">Uzbekistan</span>
-						<span data-value="242">Vanuatu</span>
-						<span data-value="243">Venezuela, Bolivarian Republic of</span>
-						<span data-value="244">Viet Nam</span>
-						<span data-value="245">Virgin Islands, British</span>
-						<span data-value="246">Virgin Islands, U.S.</span>
-						<span data-value="247">Wallis and Futuna</span>
-						<span data-value="248">Western Sahara</span>
-						<span data-value="249">Yemen</span>
-						<span data-value="250">Zambia</span>
-						<span data-value="251">Zimbabwe</span>
+						<span data-value="1">Alabama</span>
+						<span data-value="2">Alaska</span>
+						<span data-value="3">Arizona</span>
+						<span data-value="4">Arkansas</span>
+						<span data-value="5" selected>California</span>
+						<span data-value="6">Colorado</span>
+						<span data-value="7">Connecticut</span>
+						<span data-value="8">Delaware</span>
+						<span data-value="9">Florida</span>
+						<span data-value="10">Georgia</span>
+						<span data-value="11">Hawaii</span>
+						<span data-value="12">Idaho</span>
+						<span data-value="13">Illinois</span>
+						<span data-value="14">Indiana</span>
+						<span data-value="15">Iowa</span>
+						<span data-value="16">Kansas</span>
+						<span data-value="17">Kentucky</span>
+						<span data-value="18">Louisiana</span>
+						<span data-value="19">Maine</span>
+						<span data-value="20">Maryland</span>
+						<span data-value="21">Massachusetts</span>
+						<span data-value="22">Michigan</span>
+						<span data-value="23">Minnesota</span>
+						<span data-value="24">Mississippi</span>
+						<span data-value="25">Missouri</span>
+						<span data-value="26">Montana</span>
+						<span data-value="27">Nebraska</span>
+						<span data-value="28">Nevada</span>
+						<span data-value="29">New Hampshire</span>
+						<span data-value="30">New Jersey</span>
+						<span data-value="31">New Mexico</span>
+						<span data-value="32">New York</span>
+						<span data-value="33">North Carolina</span>
+						<span data-value="34">North Dakota</span>
+						<span data-value="35">Ohio</span>
+						<span data-value="36">Oklahoma</span>
+						<span data-value="37">Oregon</span>
+						<span data-value="38">Pennsylvania</span>
+						<span data-value="39">Rhode Island</span>
+						<span data-value="40">South Carolina</span>
+						<span data-value="41">South Dakota</span>
+						<span data-value="42">Tennessee</span>
+						<span data-value="43">Texas</span>
+						<span data-value="44">Utah</span>
+						<span data-value="45">Vermont</span>
+						<span data-value="46">Virginia</span>
+						<span data-value="47">Washington</span>
+						<span data-value="48">West Virginia</span>
+						<span data-value="49">Wisconsin</span>
+						<span data-value="50">Wyoming</span>
 					</section>
 				</div>
 			</div>
 		</li>
 		<li>
 			<p>It supports the <code>multiple</code> attribute.</p>
-			<div class="opty" multiple>
-				<a href="#" class="surface"><span class="placeholder">Choose foods</span></a>
+			<div class="opty" data-placeholder="Choose foods" multiple>
+				<a href="#" class="surface"></a>
 				<div class="dropdown">
 					<input type="text" class="search" tabindex="-1">
 					<section class="list">
@@ -769,8 +275,8 @@
 		</li>
 		<li>
 			<p>You can even stick option groups in them.</p>
-			<div class="opty" multiple>
-				<a href="#" class="surface"><span class="placeholder">Choose foods</span></a>
+			<div class="opty" data-placeholder="Choose foods" multiple>
+				<a href="#" class="surface"></a>
 				<div class="dropdown">
 					<input type="text" class="search" tabindex="-1">
 					<section class="list">

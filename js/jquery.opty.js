@@ -56,6 +56,10 @@ $(
 				if ($o.data("shortMode")) {
 					$(".search", $o).remove();
 				}
+				
+				if ($o.is("[data-placeholder]")) {
+					$(".surface", $o).text($o.attr("data-placeholder"));
+				}
 
 				// Add support for the "selected" attribute to
 				// allow for default selections.
@@ -372,7 +376,12 @@ function searchMenu($o, string) {
 }
 
 function chooseOption($o, $options, focusOnSurface) {
-	$(".placeholder", $o).remove();
+	$o.removeClass("zerostate");
+	$(".surface", $o).contents().filter(
+		function(){
+			return (this.nodeType == 3);
+		}
+	).remove();
 
 	// Multiple-select Optys
 	if ($o.is("[multiple]")) {
