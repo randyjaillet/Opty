@@ -270,7 +270,7 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
 }
 .opti[disabled] .surface {
   cursor: not-allowed;
-  background: transparent;
+  background: transparent url("data:image/svg+xml;utf8,<svg width='8' height='14' viewBox='0 0 8 14' xmlns='http://www.w3.org/2000/svg'><title>Triangle 1</title><path d='M4 0l4 5H0l4-5zm0 14l4-5H0l4 5z' fill='#AAA' fill-rule='evenodd'/></svg>") calc(100% - 8px) 50% no-repeat;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
