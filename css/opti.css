@@ -286,6 +286,6 @@ THIS FILE IS COMPILED. EDIT THE ORIGINAL STYLUS FILE IN SRC/, NOT THIS!!
   color: rgba(0,0,0,0.3);
   font-style: italic;
 }
-.opti .hidden {
+.hidden {
   display: none !important;
 }

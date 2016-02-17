@@ -8,6 +8,21 @@
 	<link rel="stylesheet" type="text/css" href="css/opti.css"/>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script type="text/javascript" src="js/jquery.opti.js"></script>
+	<script type="text/javascript">
+$(
+	function () {
+		
+		$("#s1, #s2, #s3, #s8").opti(
+			{
+				useFirstOptionAsPlaceholder : true
+			}
+		);
+		
+		$("#s4, #s5, #s6, #s7").opti();
+
+	}
+)
+	</script>
 </head>
 <body>
 <main>
@@ -15,307 +30,252 @@
 	<ul>
 		<li>
 			<p>Opti replaces standard <code>select</code> elements with searchable, easily styleable, custom ones.</p>
-			<div class="opti" data-placeholder="State">
-				<a href="#" class="surface"></a>
-				<div class="dropdown">
-					<input type="text" class="search" tabindex="-1">
-					<section class="list">
-						<span data-value="1">Alabama</span>
-						<span data-value="2">Alaska</span>
-						<span data-value="3">Arizona</span>
-						<span data-value="4">Arkansas</span>
-						<span data-value="5">California</span>
-						<span data-value="6">Colorado</span>
-						<span data-value="7">Connecticut</span>
-						<span data-value="8">Delaware</span>
-						<span data-value="9">Florida</span>
-						<span data-value="10">Georgia</span>
-						<span data-value="11">Hawaii</span>
-						<span data-value="12">Idaho</span>
-						<span data-value="13">Illinois</span>
-						<span data-value="14">Indiana</span>
-						<span data-value="15">Iowa</span>
-						<span data-value="16">Kansas</span>
-						<span data-value="17">Kentucky</span>
-						<span data-value="18">Louisiana</span>
-						<span data-value="19">Maine</span>
-						<span data-value="20">Maryland</span>
-						<span data-value="21">Massachusetts</span>
-						<span data-value="22">Michigan</span>
-						<span data-value="23">Minnesota</span>
-						<span data-value="24">Mississippi</span>
-						<span data-value="25">Missouri</span>
-						<span data-value="26">Montana</span>
-						<span data-value="27">Nebraska</span>
-						<span data-value="28">Nevada</span>
-						<span data-value="29">New Hampshire</span>
-						<span data-value="30">New Jersey</span>
-						<span data-value="31">New Mexico</span>
-						<span data-value="32">New York</span>
-						<span data-value="33">North Carolina</span>
-						<span data-value="34">North Dakota</span>
-						<span data-value="35">Ohio</span>
-						<span data-value="36">Oklahoma</span>
-						<span data-value="37">Oregon</span>
-						<span data-value="38">Pennsylvania</span>
-						<span data-value="39">Rhode Island</span>
-						<span data-value="40">South Carolina</span>
-						<span data-value="41">South Dakota</span>
-						<span data-value="42">Tennessee</span>
-						<span data-value="43">Texas</span>
-						<span data-value="44">Utah</span>
-						<span data-value="45">Vermont</span>
-						<span data-value="46">Virginia</span>
-						<span data-value="47">Washington</span>
-						<span data-value="48">West Virginia</span>
-						<span data-value="49">Wisconsin</span>
-						<span data-value="50">Wyoming</span>
-					</section>
-				</div>
-			</div>
-	
+			<select id="s1">
+				<option value="0">Choose state</option>
+				<option value="1">Alabama</option>
+				<option value="2">Alaska</option>
+				<option value="3">Arizona</option>
+				<option value="4">Arkansas</option>
+				<option value="5">California</option>
+				<option value="6">Colorado</option>
+				<option value="7">Connecticut</option>
+				<option value="8">Delaware</option>
+				<option value="9">Florida</option>
+				<option value="10">Georgia</option>
+				<option value="11">Hawaii</option>
+				<option value="12">Idaho</option>
+				<option value="13">Illinois</option>
+				<option value="14">Indiana</option>
+				<option value="15">Iowa</option>
+				<option value="16">Kansas</option>
+				<option value="17">Kentucky</option>
+				<option value="18">Louisiana</option>
+				<option value="19">Maine</option>
+				<option value="20">Maryland</option>
+				<option value="21">Massachusetts</option>
+				<option value="22">Michigan</option>
+				<option value="23">Minnesota</option>
+				<option value="24">Mississippi</option>
+				<option value="25">Missouri</option>
+				<option value="26">Montana</option>
+				<option value="27">Nebraska</option>
+				<option value="28">Nevada</option>
+				<option value="29">New Hampshire</option>
+				<option value="30">New Jersey</option>
+				<option value="31">New Mexico</option>
+				<option value="32">New York</option>
+				<option value="33">North Carolina</option>
+				<option value="34">North Dakota</option>
+				<option value="35">Ohio</option>
+				<option value="36">Oklahoma</option>
+				<option value="37">Oregon</option>
+				<option value="38">Pennsylvania</option>
+				<option value="39">Rhode Island</option>
+				<option value="40">South Carolina</option>
+				<option value="41">South Dakota</option>
+				<option value="42">Tennessee</option>
+				<option value="43">Texas</option>
+				<option value="44">Utah</option>
+				<option value="45">Vermont</option>
+				<option value="46">Virginia</option>
+				<option value="47">Washington</option>
+				<option value="48">West Virginia</option>
+				<option value="49">Wisconsin</option>
+				<option value="50">Wyoming</option>
+			<select>
 		</li>
 		<li>
 			<p>It automatically ditches the search if there aren't many options. (If you want.)</p>
-			<div class="opti" data-placeholder="Shipping method">
-				<a href="#" class="surface"></a>
-				<div class="dropdown">
-					<input type="text" class="search" tabindex="-1">
-					<section class="list">
-						<span data-value="1">Ground shipping</span>
-						<span data-value="2">Express shipping</span>
-					</section>
-				</div>
-			</div>
+			<select id="s2">
+				<option value="0">Choose shipping method</option>
+				<option value="1">Ground shipping</option>
+				<option value="2">Express shipping</option>
+			</select>
 		</li>
 		<li>
 			<p>It supports disabled options.</p>
-			<div class="opti" data-placeholder="Meal">
-				<a href="#" class="surface"></a>
-				<div class="dropdown">
-					<input type="text" class="search" tabindex="-1">
-					<section class="list">
-						<span data-value="4">Salad</span>
-						<span data-value="0" disabled>Steak</span>
-						<span data-value="5">Pasta</span>
-					</section>
-				</div>
-			</div>
+			<select id="s3">
+				<option value="0">Meal</option>
+				<option value="1">Salad</option>
+				<option value="2" disabled>Steak</option>
+				<option value="3">Pasta</option>
+			</select>
 		</li>
 		<li>
 			<p>Labels work.</p>
 			<div>
-				<div><label for="foo">Pet</label></div>
-				<div class="opti" id="foo">
-					<a href="#" class="surface"></a>
-					<div class="dropdown">
-						<input type="text" class="search" tabindex="-1">
-						<section class="list">
-							<span data-value="1">Puppy</span>
-							<span data-value="2">Kitten</span>
-							<span data-value="3">Frog</span>
-							<span data-value="4">Wyvern</span>
-							<span data-value="5">Goat</span>
-							<span data-value="6">Fish</span>
-						</section>
-					</div>
-				</div>
+				<div><label for="s4">Pet</label></div>
+				<select id="s4">
+					<option value="1">Puppy</option>
+					<option value="2">Kitten</option>
+					<option value="3">Frog</option>
+					<option value="4">Wyvern</option>
+					<option value="5">Goat</option>
+					<option value="6">Fish</option>
+				</select>
 			</div>
 		</li>
 		<li>
 			<p>You can have choices start off <code>selected</code>.</p>
-			<div class="opti" data-placeholder="Choose country">
-				<a href="#" class="surface"></a>
-				<div class="dropdown">
-					<input type="text" class="search" tabindex="-1">
-					<section class="list">
-						<span data-value="1">Alabama</span>
-						<span data-value="2">Alaska</span>
-						<span data-value="3">Arizona</span>
-						<span data-value="4">Arkansas</span>
-						<span data-value="5" selected>California</span>
-						<span data-value="6">Colorado</span>
-						<span data-value="7">Connecticut</span>
-						<span data-value="8">Delaware</span>
-						<span data-value="9">Florida</span>
-						<span data-value="10">Georgia</span>
-						<span data-value="11">Hawaii</span>
-						<span data-value="12">Idaho</span>
-						<span data-value="13">Illinois</span>
-						<span data-value="14">Indiana</span>
-						<span data-value="15">Iowa</span>
-						<span data-value="16">Kansas</span>
-						<span data-value="17">Kentucky</span>
-						<span data-value="18">Louisiana</span>
-						<span data-value="19">Maine</span>
-						<span data-value="20">Maryland</span>
-						<span data-value="21">Massachusetts</span>
-						<span data-value="22">Michigan</span>
-						<span data-value="23">Minnesota</span>
-						<span data-value="24">Mississippi</span>
-						<span data-value="25">Missouri</span>
-						<span data-value="26">Montana</span>
-						<span data-value="27">Nebraska</span>
-						<span data-value="28">Nevada</span>
-						<span data-value="29">New Hampshire</span>
-						<span data-value="30">New Jersey</span>
-						<span data-value="31">New Mexico</span>
-						<span data-value="32">New York</span>
-						<span data-value="33">North Carolina</span>
-						<span data-value="34">North Dakota</span>
-						<span data-value="35">Ohio</span>
-						<span data-value="36">Oklahoma</span>
-						<span data-value="37">Oregon</span>
-						<span data-value="38">Pennsylvania</span>
-						<span data-value="39">Rhode Island</span>
-						<span data-value="40">South Carolina</span>
-						<span data-value="41">South Dakota</span>
-						<span data-value="42">Tennessee</span>
-						<span data-value="43">Texas</span>
-						<span data-value="44">Utah</span>
-						<span data-value="45">Vermont</span>
-						<span data-value="46">Virginia</span>
-						<span data-value="47">Washington</span>
-						<span data-value="48">West Virginia</span>
-						<span data-value="49">Wisconsin</span>
-						<span data-value="50">Wyoming</span>
-					</section>
-				</div>
-			</div>
+			<select id="s5">
+				<option value="1">Alabama</option>
+				<option value="2">Alaska</option>
+				<option value="3">Arizona</option>
+				<option value="4">Arkansas</option>
+				<option value="5" selected>California</option>
+				<option value="6">Colorado</option>
+				<option value="7">Connecticut</option>
+				<option value="8">Delaware</option>
+				<option value="9">Florida</option>
+				<option value="10">Georgia</option>
+				<option value="11">Hawaii</option>
+				<option value="12">Idaho</option>
+				<option value="13">Illinois</option>
+				<option value="14">Indiana</option>
+				<option value="15">Iowa</option>
+				<option value="16">Kansas</option>
+				<option value="17">Kentucky</option>
+				<option value="18">Louisiana</option>
+				<option value="19">Maine</option>
+				<option value="20">Maryland</option>
+				<option value="21">Massachusetts</option>
+				<option value="22">Michigan</option>
+				<option value="23">Minnesota</option>
+				<option value="24">Mississippi</option>
+				<option value="25">Missouri</option>
+				<option value="26">Montana</option>
+				<option value="27">Nebraska</option>
+				<option value="28">Nevada</option>
+				<option value="29">New Hampshire</option>
+				<option value="30">New Jersey</option>
+				<option value="31">New Mexico</option>
+				<option value="32">New York</option>
+				<option value="33">North Carolina</option>
+				<option value="34">North Dakota</option>
+				<option value="35">Ohio</option>
+				<option value="36">Oklahoma</option>
+				<option value="37">Oregon</option>
+				<option value="38">Pennsylvania</option>
+				<option value="39">Rhode Island</option>
+				<option value="40">South Carolina</option>
+				<option value="41">South Dakota</option>
+				<option value="42">Tennessee</option>
+				<option value="43">Texas</option>
+				<option value="44">Utah</option>
+				<option value="45">Vermont</option>
+				<option value="46">Virginia</option>
+				<option value="47">Washington</option>
+				<option value="48">West Virginia</option>
+				<option value="49">Wisconsin</option>
+				<option value="50">Wyoming</option>
+			</select>
 		</li>
 		<li>
 			<p>You can disable the whole thing.</p>
-			<div class="opti" data-placeholder="State" disabled>
-				<a href="#" class="surface"></a>
-				<div class="dropdown">
-					<input type="text" class="search" tabindex="-1">
-					<section class="list">
-						<span data-value="1">Alabama</span>
-						<span data-value="2">Alaska</span>
-						<span data-value="3">Arizona</span>
-						<span data-value="4">Arkansas</span>
-						<span data-value="5" selected>California</span>
-						<span data-value="6">Colorado</span>
-						<span data-value="7">Connecticut</span>
-						<span data-value="8">Delaware</span>
-						<span data-value="9">Florida</span>
-						<span data-value="10">Georgia</span>
-						<span data-value="11">Hawaii</span>
-						<span data-value="12">Idaho</span>
-						<span data-value="13">Illinois</span>
-						<span data-value="14">Indiana</span>
-						<span data-value="15">Iowa</span>
-						<span data-value="16">Kansas</span>
-						<span data-value="17">Kentucky</span>
-						<span data-value="18">Louisiana</span>
-						<span data-value="19">Maine</span>
-						<span data-value="20">Maryland</span>
-						<span data-value="21">Massachusetts</span>
-						<span data-value="22">Michigan</span>
-						<span data-value="23">Minnesota</span>
-						<span data-value="24">Mississippi</span>
-						<span data-value="25">Missouri</span>
-						<span data-value="26">Montana</span>
-						<span data-value="27">Nebraska</span>
-						<span data-value="28">Nevada</span>
-						<span data-value="29">New Hampshire</span>
-						<span data-value="30">New Jersey</span>
-						<span data-value="31">New Mexico</span>
-						<span data-value="32">New York</span>
-						<span data-value="33">North Carolina</span>
-						<span data-value="34">North Dakota</span>
-						<span data-value="35">Ohio</span>
-						<span data-value="36">Oklahoma</span>
-						<span data-value="37">Oregon</span>
-						<span data-value="38">Pennsylvania</span>
-						<span data-value="39">Rhode Island</span>
-						<span data-value="40">South Carolina</span>
-						<span data-value="41">South Dakota</span>
-						<span data-value="42">Tennessee</span>
-						<span data-value="43">Texas</span>
-						<span data-value="44">Utah</span>
-						<span data-value="45">Vermont</span>
-						<span data-value="46">Virginia</span>
-						<span data-value="47">Washington</span>
-						<span data-value="48">West Virginia</span>
-						<span data-value="49">Wisconsin</span>
-						<span data-value="50">Wyoming</span>
-					</section>
-				</div>
-			</div>
+			<select id="s6" disabled>
+				<option value="1">Alabama</option>
+				<option value="2">Alaska</option>
+				<option value="3">Arizona</option>
+				<option value="4">Arkansas</option>
+				<option value="5" selected>California</option>
+				<option value="6">Colorado</option>
+				<option value="7">Connecticut</option>
+				<option value="8">Delaware</option>
+				<option value="9">Florida</option>
+				<option value="10">Georgia</option>
+				<option value="11">Hawaii</option>
+				<option value="12">Idaho</option>
+				<option value="13">Illinois</option>
+				<option value="14">Indiana</option>
+				<option value="15">Iowa</option>
+				<option value="16">Kansas</option>
+				<option value="17">Kentucky</option>
+				<option value="18">Louisiana</option>
+				<option value="19">Maine</option>
+				<option value="20">Maryland</option>
+				<option value="21">Massachusetts</option>
+				<option value="22">Michigan</option>
+				<option value="23">Minnesota</option>
+				<option value="24">Mississippi</option>
+				<option value="25">Missouri</option>
+				<option value="26">Montana</option>
+				<option value="27">Nebraska</option>
+				<option value="28">Nevada</option>
+				<option value="29">New Hampshire</option>
+				<option value="30">New Jersey</option>
+				<option value="31">New Mexico</option>
+				<option value="32">New York</option>
+				<option value="33">North Carolina</option>
+				<option value="34">North Dakota</option>
+				<option value="35">Ohio</option>
+				<option value="36">Oklahoma</option>
+				<option value="37">Oregon</option>
+				<option value="38">Pennsylvania</option>
+				<option value="39">Rhode Island</option>
+				<option value="40">South Carolina</option>
+				<option value="41">South Dakota</option>
+				<option value="42">Tennessee</option>
+				<option value="43">Texas</option>
+				<option value="44">Utah</option>
+				<option value="45">Vermont</option>
+				<option value="46">Virginia</option>
+				<option value="47">Washington</option>
+				<option value="48">West Virginia</option>
+				<option value="49">Wisconsin</option>
+				<option value="50">Wyoming</option>
+			</select>
 		</li>
 		<li>
 			<p>It supports the <code>multiple</code> attribute.</p>
-			<div class="opti" data-placeholder="Choose foods" multiple>
-				<a href="#" class="surface"></a>
-				<div class="dropdown">
-					<input type="text" class="search" tabindex="-1">
-					<section class="list">
-						<span data-value="1">Bread</span>
-						<span data-value="2">Apples</span>
-						<span data-value="3">Oranges</span>
-						<span data-value="4" selected>Grapes</span>
-						<span data-value="5">Mango</span>
-						<span data-value="6">Kumquat</span>
-						<span data-value="7">Dragonfruit</span>
-						<span data-value="8">Zucchini</span>
-						<span data-value="9">Cucumber</span>
-						<span data-value="10" disabled>Iceburg lettuce</span>
-						<span data-value="11" selected>Romaine lettuce</span>
-						<span data-value="12">Spinach</span>
-						<span data-value="13">Kale</span>
-						<span data-value="14">Carrot</span>
-						<span data-value="15">Basil</span>
-						<span data-value="16">Oregano</span>
-						<span data-value="17">Parsely</span>
-						<span data-value="18">Potato</span>
-					</section>
-				</div>
-			</div>
+			<select id="s7" multiple>
+				<option value="1">Bread</option>
+				<option value="2">Apples</option>
+				<option value="3">Oranges</option>
+				<option value="4" selected>Grapes</option>
+				<option value="5">Mango</option>
+				<option value="6">Kumquat</option>
+				<option value="7">Dragonfruit</option>
+				<option value="8">Zucchini</option>
+				<option value="9">Cucumber</option>
+				<option value="10" disabled>Iceburg lettuce</option>
+				<option value="11" selected>Romaine lettuce</option>
+				<option value="12">Spinach</option>
+				<option value="13">Kale</option>
+				<option value="14">Carrot</option>
+				<option value="15">Basil</option>
+				<option value="16">Oregano</option>
+				<option value="17">Parsely</option>
+				<option value="18">Potato</option>
+			</select>
 		</li>
 		<li>
 			<p>You can even stick option groups in them.</p>
-			<div class="opti" data-placeholder="Choose foods" multiple>
-				<a href="#" class="surface"></a>
-				<div class="dropdown">
-					<input type="text" class="search" tabindex="-1">
-					<section class="list">
-						<span data-value="1">Bread</span>
-						<section>
-							<h5>Fruits</h5>
-							<span data-value="2.1">Apples</span>
-							<span data-value="2.2">Oranges</span>
-							<span data-value="2.3">Grapes</span>
-							<section>
-								<h5>Exotic</h5>
-								<span data-value="2.4.1">Mango</span>
-								<span data-value="2.4.2">Kumquat</span>
-								<span data-value="2.4.3">Dragonfruit</span>
-							</section>
-						</section>
-						<section>
-							<h5>Vegetables</h5>
-							<span data-value="3.1">Zucchini</span>
-							<span data-value="3.2">Cucumber</span>
-							<section>
-								<h5>Leafy greens</h5>
-								<span data-value="3.3.1" disabled>Iceburg lettuce</span>
-								<span data-value="3.3.2">Romaine lettuce</span>
-								<span data-value="3.3.3">Spinach</span>
-								<span data-value="3.3.4">Kale</span>
-							</section>
-							<span data-value="3.4">Carrot</span>
-							<section>
-								<h5>Herbs</h5>
-								<span data-value="4.5.1">Basil</span>
-								<span data-value="4.5.2">Oregano</span>
-								<span data-value="4.5.3">Parsely</span>
-							</section>
-						</section>
-						<span data-value="3">Potato</span>
-					</section>
-				</div>
-			</div>
+			<select id="s8" multiple>
+				<option value="0">Choose foods</option>
+				<option value="1">Bread</option>
+				<optgroup label="Fruits">
+					<option value="2.1">Apples</option>
+					<option value="2.2">Oranges</option>
+					<option value="2.3">Grapes</option>
+					<option value="2.4.1">Mango</option>
+					<option value="2.4.2">Kumquat</option>
+					<option value="2.4.3">Dragonfruit</option>
+				</optgroup>
+				<option value="3">Eggs</option>
+				<optgroup label="Leafy greens">
+					<option value="3.3.1" disabled>Iceburg lettuce</option>
+					<option value="3.3.2">Romaine lettuce</option>
+					<option value="3.3.3">Spinach</option>
+					<option value="3.3.4">Kale</option>
+				</optgroup>
+				<option data-value="3.4">Carrot</option>
+				<optgroup label="Herbs">
+					<option value="4.5.1">Basil</option>
+					<option value="4.5.2">Oregano</option>
+					<option value="4.5.3">Parsely</option>
+				</optgroup>
+				<option value="3">Potato</option>
+			</select>
 		</li>
 	</ul>
 </main>
