@@ -12,13 +12,11 @@
 $(
 	function () {
 		
-		$("#s1, #s2, #s3, #s8").opti(
+		$("select").opti(
 			{
-				useFirstOptionAsPlaceholder : true
+				useFirstOptionAsPlaceholder : "0"
 			}
 		);
-		
-		$("#s4, #s5, #s6, #s7").opti();
 
 	}
 )
@@ -85,7 +83,10 @@ $(
 			<select>
 		</li>
 		<li>
-			<p>It automatically ditches the search if there aren't many options. (If you want.)</p>
+			<div>
+				<p>Choose whether to use the first option as a placeholder via the useFirstOptionAsPlaceholder option.</p>
+				<p>Automatically ditch the search if there aren't many options (use the shortModeThreshold option).</p>
+			</div>
 			<select id="s2">
 				<option value="0">Choose shipping method</option>
 				<option value="1">Ground shipping</option>
@@ -116,7 +117,7 @@ $(
 			</div>
 		</li>
 		<li>
-			<p>You can have choices start off <code>selected</code>.</p>
+			<p>Choices will start off appropriately <code>selected</code>.</p>
 			<select id="s5">
 				<option value="1">Alabama</option>
 				<option value="2">Alaska</option>
@@ -171,7 +172,7 @@ $(
 			</select>
 		</li>
 		<li>
-			<p>You can disable the whole thing.</p>
+			<p>It'll reflect disabled status.</p>
 			<select id="s6" disabled>
 				<option value="1">Alabama</option>
 				<option value="2">Alaska</option>
@@ -237,7 +238,7 @@ $(
 				<option value="7">Dragonfruit</option>
 				<option value="8">Zucchini</option>
 				<option value="9">Cucumber</option>
-				<option value="10" disabled>Iceburg lettuce</option>
+				<option value="10">Iceburg lettuce</option>
 				<option value="11" selected>Romaine lettuce</option>
 				<option value="12">Spinach</option>
 				<option value="13">Kale</option>
@@ -249,7 +250,7 @@ $(
 			</select>
 		</li>
 		<li>
-			<p>You can even stick option groups in them.</p>
+			<p>It even handles option groups.</p>
 			<select id="s8" multiple>
 				<option value="0">Choose foods</option>
 				<option value="1">Bread</option>
@@ -263,7 +264,7 @@ $(
 				</optgroup>
 				<option value="3">Eggs</option>
 				<optgroup label="Leafy greens">
-					<option value="3.3.1" disabled>Iceburg lettuce</option>
+					<option value="3.3.1">Iceburg lettuce</option>
 					<option value="3.3.2">Romaine lettuce</option>
 					<option value="3.3.3">Spinach</option>
 					<option value="3.3.4">Kale</option>

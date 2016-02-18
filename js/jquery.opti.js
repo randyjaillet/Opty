@@ -8,23 +8,25 @@ jQuery.expr[':'].containsis = function(a, i, m) {
 $.fn.opti = function(options){
 
     var defaultOptions = {
-	    shortModeThreshold : 5,
-	    useFirstOptionAsPlaceholder : false
+	    shortModeThreshold : 5,					// Any int
+	    useFirstOptionAsPlaceholder : false		// Bool or string
     };
     var settings = $.extend({}, defaultOptions, options);
 
     return this.each(
     	function() {
-
-
 			$(this).find("select").addBack().each(
 				function () {
 
 
+					// ------------------------------ //
+					// ----- Construct the Opti ----- //
+					// ------------------------------ //
+
 					var
 						$o = $('<div></div>')
 								.addClass("opti")
-								.attr("id", ($(this).attr("id") || "noid") + "-opti"),
+								.attr("id", $(this).attr("id") ? $(this).attr("id") + "-opti" : null),
 						$oSurface = $('<a></a>')
 								.attr("href", "#")
 								.addClass("surface")
@@ -54,41 +56,73 @@ $.fn.opti = function(options){
 						$o.attr("tabindex", $(this).attr("tabindex"));
 					}
 
-					var options = $(this).clone().html();
-
-					var optionsManipulated = options
-							.replace(/<optgroup/g,"<section")
-							.replace(/<\/optgroup>/g, "</section>")
-							.replace(/<option/g,"<span")
-							.replace(/<\/option>/g, "</span>")
-							.replace(/value=/g, "data-value=")
-							.replace(/\n\s*/g, "")
-							.replace(/ label="(.*?)"(.*?>)/g, "$2<h5>$1</h5>")
-					;
-
-					var $optionsParsed = $(optionsManipulated).appendTo($oList);
+					// Clone the option list as a starting point for
+					// the new one.
+					var $sClone = $(this).clone();
 					
-					if (settings.useFirstOptionAsPlaceholder) {
-						var placeholderText = $oList.find("span").first().remove().text();
-						$(".surface", $o).text(placeholderText);
-					}
-
-/*
-					$options = $options.find("optgroup").addBack("optgroup").each(
-						function (i,e) {
+					// OPTGROUPS
+					// Replace all the optgroups in the cloned structure
+					// with sections and prepend the optgroups' labels
+					// to the section
+					$("optgroup", $sClone).each(
+						function () {
 							var label = $(this).attr("label");
 							$("<h5></h5>").text(label).prependTo($(this));
 							$(this).children().unwrap().wrapAll("<section></section>");
 						}
-					).end().end();
-*/
+					)
+					
+					// OPTIONS
+					// Convert the options in the cloned structure to
+					// spans, moving attributes over
+					$sClone.find("option").each(
+						function () {
+							var
+								selected = $(this).attr("selected"),
+								disabled = $(this).prop("disabled"),
+								value = $(this).attr("value"),
+								$span = $("<span></span>")
+							;
+							
+							if (selected) $span.attr("selected", "selected");
+							if (disabled) $span.attr("disabled", "disabled");
+							if (value) $span.attr("data-value", value);
+							
+							$(this).wrapInner($span).find("span").unwrap();
+						}
+					);
 
+					// Remove the select and append the new option
+					// structure to our Opti's list
+					$sClone.children().unwrap().appendTo($oList);
+
+					// According to setting, take the first option
+					// and put it in the surface as a placeholder
+					if ((typeof settings.useFirstOptionAsPlaceholder == "boolean" && settings.useFirstOptionAsPlaceholder) || (typeof settings.useFirstOptionAsPlaceholder == "string" && $("span:first", $oList).attr("data-value") == settings.useFirstOptionAsPlaceholder)) {
+						var
+							$placeholderSpan = $("span:first", $oList),
+							placeholderText = $placeholderSpan.text()
+						;
+						$(".surface", $o).text(placeholderText);
+						$placeholderSpan.remove();
+					}
+
+					// Hide the real select and stick our Opti
+					// after it
 					$(this)
 							.addClass("hidden")
 							.after($o);
 
+
+					// ------------------------------------- //
+					// ----- Set the Opti's attributes ----- //
+					// ------------------------------------- //
+
+					// Set shortmode on the Opti if it is below
+					// the threshold setting
 					$o.data("shortMode", $(".list span", $o).length < settings.shortModeThreshold);
 
+					// If shortmode, ditch the search
 					if ($o.data("shortMode")) {
 						$(".search", $o).remove();
 					}
@@ -100,7 +134,8 @@ $.fn.opti = function(options){
 					} else {
 						$o.addClass("zerostate");
 					}
-					
+
+					// Make the Opti not tab-to-able if it's disabled
 					$o.on(
 						"disabled",
 						function(e) {
@@ -122,6 +157,11 @@ $.fn.opti = function(options){
 							}
 						);
 					} else {
+
+
+						// -------------------------- //
+						// ----- Event handling ----- //
+						// -------------------------- //
 
 						// Find a label for the Opti and make it so clicking
 						// the label puts focus on this Opti's surface.
@@ -343,12 +383,16 @@ $.fn.opti = function(options){
 
 				}
 			)
-
-
 		}
 	);
 
 }
+
+
+
+// ------------------- //
+// ----- Helpers ----- //
+// ------------------- //
 
 $(
 	function () {
@@ -364,6 +408,7 @@ $(
 	}
 )
 
+
 function showMenu($o) {
 	hideMenu($(".opti").not($o)); // Close other menus.
 	if (!$o.hasClass("activated")) {
@@ -373,6 +418,7 @@ function showMenu($o) {
 		$(".search",$o).focus();
 	}
 }
+
 
 function hideMenu($o, focusOnSurface) {
 	if ($o.hasClass("activated")) {
@@ -389,6 +435,7 @@ function hideMenu($o, focusOnSurface) {
 		$(".surface", $o).focus();
 	}
 }
+
 
 function searchMenu($o, string) {
 	var $matches = $o.find("span:containsis(" + string + ")");
@@ -417,6 +464,7 @@ function searchMenu($o, string) {
 		$("span:not(.hidden):first", $o).addClass("fakefocus");
 	}
 }
+
 
 function chooseOption($o, $options, focusOnSurface) {
 	$o.removeClass("zerostate");
@@ -467,9 +515,10 @@ function chooseOption($o, $options, focusOnSurface) {
 
 	// Single-select Opti
 	else {
-		// Just in case multiple options slipped in, just use the last.
-		var $option = $options.last();
-		
+		// Just in case multiple options slipped in, just use the first.
+		var $option = $options.first();
+
+		// Set the value in the original select element.
 		$s.val($option.attr("data-value"));
 
 		// Put the text of the selected option into the surface.
@@ -488,6 +537,7 @@ function chooseOption($o, $options, focusOnSurface) {
 
 	$o.trigger("change");
 }
+
 
 // This function is currently only used on multiple-select Optis, as
 // single-select ones can't have their chosen options un-chosen (just
@@ -509,15 +559,16 @@ function unchooseOption($o, dataValue) {
 	}
 }
 
+
 // Sadly our fake focus doesn't move the scrollbar to keep it visible
 // as with tabbing, so we must scroll the menu manually to keep our
 // home-baked focus in view. (No, JavaScript's .scrollIntoView()
 // doesn't quite give us what we want. It's a little too aggressive,
 // scrolling the menu so the option is at the top even if no scrolling
 // was necessary. It's more like "scrollToElementTopNoMatterWhat()".)
-function scrollOptionIntoView($list, $oon) {
-	var topedgeoffset = $oon.position().top;
-	var bottomedgeoffset = $oon.position().top + $oon.outerHeight();
+function scrollOptionIntoView($list, $option) {
+	var topedgeoffset = $option.position().top;
+	var bottomedgeoffset = $option.position().top + $option.outerHeight();
 
 	if (topedgeoffset < $list.scrollTop()) {
 		// The option is above the fold

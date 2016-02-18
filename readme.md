@@ -4,26 +4,39 @@ A searchable, easily-styled replacement for select elements.
 
 ## Features
 
-As with standard select elements, Opti elements can...
+Opti elements will reflect the characteristics of their corresponding select elements. They support...
 
-* be disabled or have their options disabled with the `disabled` attribute
-* have pre-selected options with the `selected` attribute
-* support multiple selections with the `multiple` attribute
-* have grouped options using `section` elements
+* being disabled or having their options disabled with the `disabled` attribute
+* having pre-selected options with the `selected` attribute
+* multiple selections with the `multiple` attribute
+* optgroups (these become sections in the Opti and their labels H5s)
 
 ## Usage
 
-Opti does not need to be initialized. Just include jQuery, the Opti script, and the required markup.
+Include jQuery and the Opti script, then initialize Opti. You can initialize it on the specific select elements you wish to target or a parent container of all the select elements you want to target.
+
+```
+<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/js/jquery.opti.js"></script>
+<script>
+$(
+	function () {
+
+		$("select").opti();
+
+	}
+)
+</script>
+```
 
 ## Markup
 
-Opti does not automatically inject near or in place of existing select elements. Specific markup must be in place for the Opti to initialize on. The expected markup structure is as follows:
+Opti automatically injects immediately after targeted select elements. What follows is the markup structure that is injected.
 
-* `.opti`
+* `.opti` (will have an id of "foo-opti" where "foo" is the id of the targeted select element.)
 	* `a.surface`
-		* `.placeholder` (optional for zero-state placeholder value)
 	* `.dropdown`
-		* `input.search[type=text]`
+		* `input.search[type=text][tabindex=-1]`
 		* `section.list`
 			* `section` (optional for grouping)
 				* `span` (options--use `data-value` rather than `value`)
@@ -33,8 +46,14 @@ Opti does not automatically inject near or in place of existing select elements.
 For example:
 
 ```
-<div class="opti" id="foods" multiple>
-	<a href="#" class="surface"><span class="placeholder">Choose foods</span></a>
+<select id="foods" multiple>
+	<option value="0">Choose foods</option>
+	<option value="1">Apples</option>
+	<option value="2">Oranges</option>
+	<option value="3">Grapes</option>
+</select>
+<div class="opti" id="foods-opti" multiple>
+	<a href="#" class="surface">Choose foods</a>
 	<div class="dropdown">
 		<input type="text" class="search" tabindex="-1">
 		<section class="list">
@@ -48,8 +67,24 @@ For example:
 
 ## Value Storage
 
-Opti elements store their current values using the jQuery `data()` method in the key "values". This is a string for single-select Opti elements and an array for multi-select ones. For example, to retrieve the current value on the above Opti element, one could use: `$("#foods").data("values")`. (This would retrieve the `data-value` of the currently chosen option, not the text.)
+Opti elements use the original select elements to store their values. This way, submitted forms will automatically include the correct values without requiring JS manipulation.
 
-## Short Mode
+## Options
 
-If an Opti element has less than five items, it will enter "short mode" and nix its search feature.
+Opti takes options passed in an object on initialization.
+
+```
+$("select").opti(
+	{
+		shortModeThreshold : 10
+	}
+);
+```
+
+### `shortModeThreshold`
+
+If an Opti has less than this number of options, it will enter "short mode" and the search will be nixed. Default is 5.
+
+### `useFirstOptionAsPlaceholder`
+
+If set to `true`, the first option of the select will be removed in the Opti and its text inserted into the Opti's surface as a placeholder. If set to a string, this behavior will be performed only in cases where the first option's value matches the string. (Note that option values are strings even when digits--so a string of "0" could be used to target options with values of "0" and this will not be treated as `false`.) Default is `false`.
